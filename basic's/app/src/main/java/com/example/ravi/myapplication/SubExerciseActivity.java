@@ -8,9 +8,15 @@ import java.util.ArrayList;
 
 public class SubExerciseActivity extends AppCompatActivity {
 
-    ArrayList<SubExercise> first_sub;
-    ArrayList<SubExercise> second_sub;
+    ArrayList<SubExercise> abdominal;
+    ArrayList<SubExercise> Biceps;
+    ArrayList<SubExercise> Chest;
+    ArrayList<SubExercise> Legs;
+    ArrayList<SubExercise> Shoulder;
+    ArrayList<SubExercise> Triceps;
+    ArrayList<SubExercise> Stretching;
     ListView subListView;
+    private ArrayList<SubExercise> back;
 
 
     @Override
@@ -20,49 +26,104 @@ public class SubExerciseActivity extends AppCompatActivity {
 
         String title = getIntent().getExtras().getString("title");
 
-        first_sub = new ArrayList<>();
-        first_sub.add(new SubExercise(R.drawable.ab_roller, "AB ROLLER"));
-        first_sub.add(new SubExercise(R.drawable.bicycle_crunches, "BICYCLE CRUNCHES"));
+        abdominal = new ArrayList<>();
+        abdominal.add(new SubExercise(R.drawable.ab_roller, "AB ROLLER"));
+        abdominal.add(new SubExercise(R.drawable.bicycle_crunches, "BICYCLE CRUNCHES"));
 
-        first_sub.add(new SubExercise(R.drawable.bottoms_up, "BOTTOMS UP STANDING"));
-        first_sub.add(new SubExercise(R.drawable.abs_crunch, "CRUNCHES"));
+        abdominal.add(new SubExercise(R.drawable.bottoms_up, "BOTTOMS UP STANDING"));
+        abdominal.add(new SubExercise(R.drawable.abs_crunch, "CRUNCHES"));
 
-        first_sub.add(new SubExercise(R.drawable.decline_crunches, "DECLINE CRUNCHES"));
-        first_sub.add(new SubExercise(R.drawable.hanging_upside, "HANGING UPSIDE"));
+        abdominal.add(new SubExercise(R.drawable.decline_crunches, "DECLINE CRUNCHES"));
+        abdominal.add(new SubExercise(R.drawable.hanging_upside, "HANGING UPSIDE"));
 
-        first_sub.add(new SubExercise(R.drawable.cable_seated_crunches, "CABLESEATED CRUNCHES"));
-        first_sub.add(new SubExercise(R.drawable.lying_leg_raise, "LYING LEG RAISE"));
+        abdominal.add(new SubExercise(R.drawable.cable_seated_crunches, "CABLESEATED CRUNCHES"));
+        abdominal.add(new SubExercise(R.drawable.lying_leg_raise, "LYING LEG RAISE"));
 
-        first_sub.add(new SubExercise(R.drawable.plank, "PLANK"));
-        first_sub.add(new SubExercise(R.drawable.side_lateral_bend, "SIDELATERAL BENT"));
+        abdominal.add(new SubExercise(R.drawable.plank, "PLANK"));
+        abdominal.add(new SubExercise(R.drawable.side_lateral_bend, "SIDELATERAL BENT"));
 
-        first_sub.add(new SubExercise(R.drawable.side_plank, "SIDE PLANK"));
-        first_sub.add(new SubExercise(R.drawable.v_up_abs, "V-UP ABS"));
+        abdominal.add(new SubExercise(R.drawable.side_plank, "SIDE PLANK"));
+        abdominal.add(new SubExercise(R.drawable.v_up_abs, "V-UP ABS"));
 
-        first_sub.add(new SubExercise(R.drawable.bent_knee_hip_raise, "NENT KNEE HIP RAISE"));
-        first_sub.add(new SubExercise(R.drawable.butts_up, "BUTTS UP"));
+        abdominal.add(new SubExercise(R.drawable.bent_knee_hip_raise, "NENT KNEE HIP RAISE"));
+        abdominal.add(new SubExercise(R.drawable.butts_up, "BUTTS UP"));
 
-        first_sub.add(new SubExercise(R.drawable.cable_twists, "CABLE TWISTS"));
-        first_sub.add(new SubExercise(R.drawable.decline_oblique_crun, "DECLINE OBLIQUE CRUNCHES"));
-
-
+        abdominal.add(new SubExercise(R.drawable.cable_twists, "CABLE TWISTS"));
+        abdominal.add(new SubExercise(R.drawable.decline_oblique_crun, "DECLINE OBLIQUE CRUNCHES"));
 
 
 
-        second_sub = new ArrayList<>();
-        second_sub.add(new SubExercise(R.drawable.img, "Sit Ups"));
-        second_sub.add(new SubExercise(R.drawable.img2, "Runnings"));
+        back = new ArrayList<>();
+
+
+        back.add(new SubExercise(R.drawable.plank, "PLANK"));
+        back.add(new SubExercise(R.drawable.side_lateral_bend, "SIDELATERAL BENT"));
+
+        back.add(new SubExercise(R.drawable.side_plank, "SIDE PLANK"));
+        back.add(new SubExercise(R.drawable.v_up_abs, "V-UP ABS"));
+
+
+        Biceps =new ArrayList<>();
+
+        Biceps.add(new SubExercise(R.drawable.side_plank, "SIDE PLANK"));
+        Biceps.add(new SubExercise(R.drawable.v_up_abs, "V-UP ABS"));
+
+        Chest =new ArrayList<>();
+        Chest.add(new SubExercise(R.drawable.v_up_abs, "V-UP ABS"));
+
+        Legs =new ArrayList<>();
+        Legs.add(new SubExercise(R.drawable.v_up_abs, "V-UP ABS"));
+
+
+        Shoulder =new ArrayList<>();
+
+        Shoulder.add(new SubExercise(R.drawable.v_up_abs, "V-UP ABS"));
+
+
+        Triceps =new ArrayList<>();
+        Triceps.add(new SubExercise(R.drawable.v_up_abs, "V-UP ABS"));
+
+        Stretching =new ArrayList<>();
+        Stretching.add(new SubExercise(R.drawable.v_up_abs, "V-UP ABS"));
+
+
+
+
 
 
         subListView = (ListView) findViewById(R.id.subList);
 
 
-        if (title.equals("First")) {
-            subListView.setAdapter(new SubListAdapter(this, first_sub));
 
-        } else {
 
-            subListView.setAdapter(new SubListAdapter(this, second_sub));
+
+        switch (title){
+            case "ABDOMINAL":
+                subListView.setAdapter(new SubListAdapter(this, abdominal));
+                break;
+            case "BACK":
+                subListView.setAdapter(new SubListAdapter(this, back));
+                break;
+            case "BICEPS":
+                subListView.setAdapter(new SubListAdapter(this,Biceps));
+                break;
+            case "CHEST":
+                subListView.setAdapter(new SubListAdapter(this,Chest));
+                break;
+            case "LEGS":
+                subListView.setAdapter(new SubListAdapter(this,Legs));
+                break;
+            case "SHOULDER":
+                subListView.setAdapter(new SubListAdapter(this,Shoulder));
+                break;
+            case "TRICEPS":
+                subListView.setAdapter(new SubListAdapter(this,Triceps));
+                break;
+            case "STRETCHING":
+                subListView.setAdapter(new SubListAdapter(this,Stretching));
+                break;
+            default:
+                break;
 
         }
 
